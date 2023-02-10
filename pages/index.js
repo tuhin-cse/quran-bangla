@@ -1,24 +1,25 @@
 import HomeLayout from "../layouts/home";
-import Hero from "../components/home/hero";
-import Features from "../components/home/features";
-import Learning from "../components/home/learning";
-import Category from "../components/home/category";
-import Experience from "../components/home/experience";
-import Members from "../components/home/members";
-import Brands from "../components/home/brands";
-import Testimonials from "../components/home/testimonials";
+import surahs from "../data/surahs";
+import Link from "next/link";
 
 const Home = () => {
     return (
         <>
-            <Hero/>
-            <Features/>
-            <Learning/>
-            <Category/>
-            <Experience/>
-            <Members/>
-            <Brands/>
-            <Testimonials/>
+            <div className="container">
+                <div className="flex flex-wrap -mx-3">
+                    {surahs?.map((surah, index) =>(
+                        <div className="w-full sm:w-1/2 md:w-1/3 p-3" key={index}>
+                           <Link href={"/surah/" + surah.id}>
+                               <div className="border p-4" role="button">
+                                   <p className="text-gray-700">{surah.no}. {surah.name}</p>
+                               </div>
+                           </Link>
+                        </div>
+                    ))}
+
+                </div>
+            </div>
+
         </>
     )
 }
