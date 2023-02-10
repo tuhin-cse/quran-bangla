@@ -43,7 +43,7 @@ const Surah = ({surah}) => {
 
     return (
         <div className="container">
-            <h2 className="text-2xl font-medium text-gray-700 my-4">{surah.no}. {surah?.name}</h2>
+            <h2 className="text-2xl font-medium text-gray-700 my-4">{surah?.no}. {surah?.name}</h2>
             {Object.values(data).map((group, index) => (
                 <div className="" key={index}>
                     {group?.map((verse, index) =>(
