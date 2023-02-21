@@ -46,14 +46,22 @@ const Surah = ({surah}) => {
             <h2 className="text-2xl font-medium text-gray-700 my-4">{surah?.no}. {surah?.name}</h2>
             {Object.values(data).map((group, index) => (
                 <div className="" key={index}>
-                    {group?.map((verse, index) =>(
-                        <div className="card" key={index}>
-                            <div className="">
-                                <AiOutlineUnorderedList size={24} onClick={() => setVerse(verse)} role="button"/>
+                    {group?.map((verse, index2) =>(
+                        <div className="card" key={index2}>
+                            <div className="text-4xl text-gray-600">
+                                {index * 10 + index2 + 1}
                             </div>
                             <p className="text-right text-gray-700 text-5xl mb-3 leading-[80px]">
                                 {verse?.words?.reduce((acc, d) => acc + `${!!acc ? " " : ""}${d.a}`, "")}
                             </p>
+                            <div className="flex flex-wrap -mx-2">
+                                {verse?.words?.map((word, index) => (
+                                    <div className="px-2 pb-2" key={index}>
+                                        <p className="text-xs text-gray-500">{word.p}</p>
+                                        <p className="text-xs text-gray-500">{word.b}</p>
+                                    </div>
+                                ))}
+                            </div>
                             <p className="text-gray-700">{verse?.translation}</p>
                         </div>
                     ))}
