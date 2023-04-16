@@ -13,6 +13,7 @@ const Header = () => {
                         <h4 role="button" className="text-2xl text-gray-700 font-semibold">Quran</h4>
                     </Link>
                     <div className="flex py-1">
+                        <Link href="/words" className="mr-2">Words</Link>
                         <a role="button" onClick={() => setShow(true)}>Share</a>
                     </div>
                 </div>
